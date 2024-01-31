@@ -1,4 +1,5 @@
 import { Navbar } from "./_components/navbar/navbar"
+import RegisterModal from "./_components/registerModal";
 
 const HomeLayout = ({
   children
@@ -8,6 +9,7 @@ const HomeLayout = ({
   return (
     <>
       <Navbar />
+      <RegisterModal />
       <div>
         { children }
       </div>

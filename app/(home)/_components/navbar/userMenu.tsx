@@ -4,10 +4,12 @@ import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "@/app/(home)/_components/avatar";
 import { useCallback, useState } from "react";
 import MenuItem from "./menuItem";
+import useRegisterModal from "@/hooks/useRegisterModal";
 
 
 const UserMenu = () => {
   const [ isOpen, setIsOpen ] = useState(false);
+  const useRegister = useRegisterModal();
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
@@ -40,7 +42,7 @@ const UserMenu = () => {
                         label="Login"
                     />
                     <MenuItem
-                        onClick={() => {}}
+                        onClick={useRegister.onOpen}
                         label="Sign up"
                     />
                     
