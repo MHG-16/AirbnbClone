@@ -30,7 +30,7 @@ const RegisterModal = () => {
     <div className="flex flex-col gap-4">
       <Heading title="Welcome to Airbnb" subtitle="Create an account"/>
       <Input id="email" label="Email" type="email"  disabled={isPending} register={register} errors={errors} required/>
-      <Input id="Name" label="Name" type="text"  disabled={isPending} register={register} errors={errors} required/>
+      <Input id="name" label="Name" type="text"  disabled={isPending} register={register} errors={errors} required/>
       <Input id="password" label="Password" type="password"  disabled={isPending} register={register} errors={errors} required/>    
     </div>
   )
