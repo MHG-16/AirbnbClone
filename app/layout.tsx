@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Nunito as FontSans } from "next/font/google";
 import "./globals.css";
 import ToasterProvider from "@/providers/ToasterProvider";
+import { cn } from "@/lib/utils";
 
-const font = Nunito({ subsets: ["latin"] });
+export const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
+
 
 export const metadata: Metadata = {
   title: "Airbnb",
@@ -17,7 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+          )}
+      >
         <ToasterProvider />
         {children}
       </body>
