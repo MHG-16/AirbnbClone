@@ -1,14 +1,18 @@
+import getCurrentUser from "@/actions/getCurrentUser";
+import LoginModal from "./_components/login-modal";
 import { Navbar } from "./_components/navbar/navbar"
 import RegisterModal from "./_components/registerModal";
 
-const HomeLayout = ({
+const HomeLayout = async ({
   children
 }: {
   children: React.ReactNode
 }) => {
+  const currentUser = await getCurrentUser();
   return (
     <>
-      <Navbar />
+      <Navbar currentUser={currentUser}/>
+      <LoginModal />
       <RegisterModal />
       <div>
         { children }
