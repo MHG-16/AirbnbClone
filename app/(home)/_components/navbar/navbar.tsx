@@ -6,7 +6,7 @@ import { SafeUser } from '@/types';
 import Categories from './categories';
 
 interface NavbarProps {
-  currentUser?: SafeUser;
+  currentUser?: SafeUser | null;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({

@@ -9,7 +9,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import useRegisterModal from "@/hooks/useRegisterModal";
 import Modal from "@/app/components/modals/Modal";
 import Heading from "./heading";
-import Input from "@/app/components/input";
+import Input from "@/app/components/input/input";
 import toast from "react-hot-toast";
 import Button from "@/app/components/button";
 import { signIn } from "next-auth/react";
