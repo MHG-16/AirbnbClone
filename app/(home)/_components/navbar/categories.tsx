@@ -100,7 +100,7 @@ const Categories = () => {
   }
   return (
     <Container>
-        <ScrollArea className="w-full whitespace-nowrap">
+        <ScrollArea className="w-full">
             <div className="pt-4 flex flex-row items-center justify-between overflow-x-auto">
                 {categories.map((item) => (
                     <CategoryBox
@@ -112,7 +112,7 @@ const Categories = () => {
                     />
                 ))}
             </div>
-            <ScrollBar orientation="horizontal" className='text-black'/>
+            <ScrollBar orientation="horizontal"/>
         </ScrollArea>
     </Container>
   )

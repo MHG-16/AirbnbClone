@@ -3,7 +3,7 @@
 import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { useCallback, useState, useTransition } from "react";
+import { useCallback, useTransition } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import useRegisterModal from "@/hooks/useRegisterModal";
@@ -13,9 +13,11 @@ import Input from "@/app/components/input";
 import toast from "react-hot-toast";
 import Button from "@/app/components/button";
 import { signIn } from "next-auth/react";
+import useLoginModal from "@/hooks/useLoginModal";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isPending, startTransition] = useTransition();
   const { register, handleSubmit, formState: {
     errors,
@@ -25,7 +27,12 @@ const RegisterModal = () => {
       email: "",
       password: "",
     }
-  })
+  });
+
+  const toggle = useCallback(() => {
+    registerModal.onClose();
+    loginModal.onOpen();
+  }, [loginModal, registerModal])
 
   const BodyContent = (
     <div className="flex flex-col gap-4">
@@ -46,7 +53,7 @@ const RegisterModal = () => {
           <div>
             Already have an account?
           </div>
-          <div className="text-neutral-800 cursor-pointer hover:underline" onClick={registerModal.onClose}>
+          <div className="text-neutral-800 cursor-pointer hover:underline" onClick={toggle}>
             Log in
           </div>
         </div>
