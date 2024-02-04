@@ -5,6 +5,7 @@ import Modal from "@/app/components/modals/Modal";
 import useRentModal from "@/hooks/useRentModal";
 import { FieldValues, useForm } from "react-hook-form";
 import { Gatecory } from "./gatecory";
+import Location from "./location";
 
 enum STEPS {
   CATEGORY = 0,
@@ -40,6 +41,7 @@ const RentModal = () => {
     },
   });
   const category = watch("category");
+  const location = watch("location");
 
   const onBack = () => {
     setStep((value) => value - 1);
@@ -72,10 +74,10 @@ const RentModal = () => {
     }
 
     if ( step === STEPS.LOCATION) {
-      return <></>
+      return <Location setCustomValue={setCustomValue} location={location}/>
     }
     return undefined;
-  }, [category, setValue, step]);
+  }, [category, location, setValue, step]);
 
   return (
     <Modal
