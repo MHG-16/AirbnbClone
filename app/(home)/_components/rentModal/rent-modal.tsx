@@ -136,6 +136,7 @@ const RentModal = () => {
       onSubmit={handleSubmit(onSubmit)}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryLabel}
+      disabled={isPending}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
       body={bodyContent}
     />
