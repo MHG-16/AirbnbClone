@@ -5,14 +5,15 @@ import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 
 interface DescriptionProps {
     register: UseFormRegister<FieldValues>;
-    errors: FieldErrors<FieldValues>
+    errors: FieldErrors<FieldValues>;
+    isLoading: boolean;
 }
 
 const Description: React.FC<DescriptionProps> = ({
     register,
-    errors
+    errors,
+    isLoading
 }) => {
-  const [isPending, startTransition] = useTransition()
   return (
     <div className="flex flex-col gap-8">
         <Heading 
@@ -25,7 +26,7 @@ const Description: React.FC<DescriptionProps> = ({
             register={register}
             errors={errors}
             required
-            disabled={isPending}
+            disabled={isLoading}
         />
         <hr/>
         <Input 
@@ -34,7 +35,7 @@ const Description: React.FC<DescriptionProps> = ({
             register={register}
             errors={errors}
             required
-            disabled={isPending}
+            disabled={isLoading}
         />
     </div>
   )
