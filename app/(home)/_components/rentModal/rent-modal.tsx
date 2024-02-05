@@ -7,7 +7,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import { Gatecory } from "./gatecory";
 import Location from "./location";
 import Info from "./info";
-import Images from "./images";
+import ImagesCountainer from "./images";
 
 enum STEPS {
   CATEGORY = 0,
@@ -47,6 +47,7 @@ const RentModal = () => {
   const guestCount =  watch("guestCount");
   const roomCount = watch("roomCount");
   const bathroomCount = watch("bathroomCount");
+  const imageSrc = watch("imageSrc");
 
   const onBack = () => {
     setStep((value) => value - 1);
@@ -87,11 +88,10 @@ const RentModal = () => {
     }
 
     if (step === STEPS.IMAGES) {
-      <Images />
+      return <ImagesCountainer setCustomValue={setCustomValue} imageSrc={imageSrc}/>
     }
-    console.log(category, location)
     return undefined;
-  }, [bathroomCount, category, guestCount, location, roomCount, setValue, step]);
+  }, [bathroomCount, category, guestCount, location, roomCount, setValue, step, imageSrc]);
 
   return (
     <Modal
