@@ -8,6 +8,7 @@ import { Gatecory } from "./gatecory";
 import Location from "./location";
 import Info from "./info";
 import ImagesCountainer from "./images";
+import Description from "./description";
 
 enum STEPS {
   CATEGORY = 0,
@@ -90,8 +91,12 @@ const RentModal = () => {
     if (step === STEPS.IMAGES) {
       return <ImagesCountainer setCustomValue={setCustomValue} imageSrc={imageSrc}/>
     }
+
+    if (step === STEPS.DESCRIPTION) {
+      return <Description register={register} errors={errors}/>
+    }
     return undefined;
-  }, [bathroomCount, category, guestCount, location, roomCount, setValue, step, imageSrc]);
+  }, [step, setValue, category, location, guestCount, roomCount, bathroomCount, imageSrc, register, errors]);
 
   return (
     <Modal
