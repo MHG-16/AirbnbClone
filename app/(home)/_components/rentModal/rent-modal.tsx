@@ -1,11 +1,13 @@
 "use client";
-import { useCallback, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 import Modal from "@/app/components/modals/Modal";
 import useRentModal from "@/hooks/useRentModal";
 import { FieldValues, useForm } from "react-hook-form";
 import { Gatecory } from "./gatecory";
 import Location from "./location";
+import Info from "./info";
+import Images from "./images";
 
 enum STEPS {
   CATEGORY = 0,
@@ -42,6 +44,9 @@ const RentModal = () => {
   });
   const category = watch("category");
   const location = watch("location");
+  const guestCount =  watch("guestCount");
+  const roomCount = watch("roomCount");
+  const bathroomCount = watch("bathroomCount");
 
   const onBack = () => {
     setStep((value) => value - 1);
@@ -76,8 +81,17 @@ const RentModal = () => {
     if ( step === STEPS.LOCATION) {
       return <Location setCustomValue={setCustomValue} location={location}/>
     }
+
+    if (step === STEPS.INFO) {
+      return <Info setCustomValue={setCustomValue} guestCount={guestCount} roomCount={roomCount} bathroomCount={bathroomCount} />
+    }
+
+    if (step === STEPS.IMAGES) {
+      <Images />
+    }
+    console.log(category, location)
     return undefined;
-  }, [category, location, setValue, step]);
+  }, [bathroomCount, category, guestCount, location, roomCount, setValue, step]);
 
   return (
     <Modal
