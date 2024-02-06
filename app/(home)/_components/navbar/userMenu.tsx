@@ -26,9 +26,10 @@ const UserMenu :React.FC<UserMenuProps> = ({
   const useRent = useRentModal();
   const router = useRouter();
 
-  const toggleOpen = useCallback(() => {
+  const toggleOpen = useCallback((path?: string) => {
     setIsOpen((value) => !value);
-  }, []);
+    if(path) return router.push("/" + path);
+  }, [router]);
 
   const onRent = useCallback(() => {
     if (!currentUser) {
@@ -48,7 +49,7 @@ const UserMenu :React.FC<UserMenuProps> = ({
                 Airbnb your home
             </div>
             <div
-                onClick={toggleOpen}
+                onClick={() => toggleOpen()}
                 className='p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition'
             >
                 <AiOutlineMenu />
@@ -64,7 +65,7 @@ const UserMenu :React.FC<UserMenuProps> = ({
                     {currentUser ? (
                         <>
                             <MenuItem 
-                            onClick={() => router.push("/trips")}
+                            onClick={() => toggleOpen("trips")}
                             label="My trips"
                             />
                             <MenuItem
