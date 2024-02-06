@@ -10,7 +10,12 @@ export default async function getListings() {
             }
         });
 
-        return listings;
+        const safeListings = listings.map((listing) => ({
+            ...listing,
+            createdAt: listing.createdAt
+        }));
+
+        return safeListings;
     } catch(err: any) {
         throw new Error(err);
     }

@@ -16,7 +16,7 @@ const HomeLayout = async ({
       <LoginModal />
       <RegisterModal />
       <RentModal />
-      <div>
+      <div className="pt-24">
         { children }
       </div>
     </>
