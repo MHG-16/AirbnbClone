@@ -1,8 +1,8 @@
 import getCurrentUser from '@/actions/getCurrentUser'
-import React from 'react'
+import React, { Suspense } from 'react'
 import EmptyState from '../_components/empty-state';
 import getReservations from '@/actions/getReservation';
-import TripsClient from './tripsClient';
+import TripsClient, { TripsSkeleton } from './tripsClient';
 
 const TripsPage = async () => {
   const currentUser = await getCurrentUser();
@@ -21,10 +21,12 @@ const TripsPage = async () => {
   }
   return (
     <div>
-        <TripsClient 
+        <Suspense fallback={<TripsSkeleton />}>
+          <TripsClient 
             reservations={reservations}
             currentUser={currentUser}
-        />
+          />
+        </Suspense>
     </div>
   )
 }

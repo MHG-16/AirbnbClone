@@ -8,7 +8,8 @@ import Heading from "../_components/heading";
 import { useCallback, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import ListingCard from "../_components/listings/listingCard";
+import ListingCard, { ListingCardSkeleton } from "../_components/listings/listingCard";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface TripsClientProps {
     reservations: safeReservation[];
@@ -56,4 +57,19 @@ const TripsClient: React.FC<TripsClientProps> = ({
   )
 }
 
+export const TripsSkeleton = () => {
+    return (
+        <Container>
+            <Heading 
+                title="Trips"
+                subtitle="Where you've been and where you want to go"
+            />
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
+                {[...Array(5)].map((index) => (
+                    <ListingCardSkeleton key={index}/>
+                ))}
+            </div>
+        </Container>
+    )
+}
 export default TripsClient
