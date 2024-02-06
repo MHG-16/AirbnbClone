@@ -6,21 +6,22 @@ import { useRouter } from "next/navigation";
 import { differenceInDays, eachDayOfInterval } from "date-fns";
 import axios from "axios";
 
-import { SafeUser, safeListing } from "@/types";
+import { SafeUser, safeListing, safeReservation } from "@/types";
 import { categories } from "@/app/(home)/_components/navbar/categories";
 import { Container } from "@/app/(home)/_components/container";
-import ListingHeader from "./_components/listing-header";
+import ListingHeader, { ListingHeaderSkeleton } from "./_components/listing-header";
 import { useCountries } from "@/hooks/useCountries";
 import ListingInfo from "./_components/listing-info";
 import useLoginModal from "@/hooks/useLoginModal";
 import toast from "react-hot-toast";
 import ListingReservation from "./_components/listing-reservation";
 import { Range } from "react-date-range";
+import { Skeleton } from "@/components/ui/skeleton";
 
 
 
 interface ListingClientProps {
-    reservations?: Reservation[];
+    reservations?: safeReservation[];
     listing: safeListing & {
         user: SafeUser
     };
@@ -139,4 +140,16 @@ const ListingClient: React.FC<ListingClientProps> = ({
   )
 }
 
+export const ListingClientSkeleton = () => {
+    return (
+        <Container>
+            <div className="max-w-screen-lg mx-auto">
+                <div className="flex flex-col gap-6">
+                    <ListingHeaderSkeleton />
+                    <Skeleton className="h-48 w-full bg-slate-500"/>
+                </div>
+            </div>
+        </Container>
+    )
+}
 export default ListingClient
