@@ -77,7 +77,7 @@ const UserMenu :React.FC<UserMenuProps> = ({
                                 label="My reservations"
                             />
                             <MenuItem
-                                onClick={() => {}}
+                                onClick={() => toggleOpen("properties")}
                                 label="My properties"
                             />
                             <MenuItem

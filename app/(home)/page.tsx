@@ -1,8 +1,9 @@
+import { Suspense } from "react";
+
 import getListings from "@/actions/getListings";
 import { Container } from "./_components/container";
 import EmptyState from "./_components/empty-state";
 import ListingCard, { ListingCardSkeleton } from "./_components/listings/listingCard";
-import { Suspense } from "react";
 import getCurrentUser from "@/actions/getCurrentUser";
 
 export default async function Home() {
