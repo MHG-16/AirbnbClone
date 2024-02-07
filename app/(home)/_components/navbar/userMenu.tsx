@@ -69,7 +69,7 @@ const UserMenu :React.FC<UserMenuProps> = ({
                             label="My trips"
                             />
                             <MenuItem
-                                onClick={() => {}}
+                                onClick={() => toggleOpen("favorites")}
                                 label="My favorites"
                             />
                             <MenuItem
