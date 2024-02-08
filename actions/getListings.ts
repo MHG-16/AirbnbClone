@@ -92,7 +92,7 @@ export async function    getListingsByparams(params: IListingParams) {
 
         if (startDate && endDate) {
             query.NOT = {
-                reservation: {
+                reservations: {
                     some: {
                         OR: [
                             {

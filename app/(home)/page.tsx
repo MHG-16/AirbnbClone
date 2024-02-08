@@ -1,13 +1,16 @@
 import { Suspense } from "react";
 
-import getListings from "@/actions/getListings";
+import getListings, { IListingParams, getListingsByparams } from "@/actions/getListings";
 import { Container } from "./_components/container";
 import EmptyState from "./_components/empty-state";
 import ListingCard, { ListingCardSkeleton } from "./_components/listings/listingCard";
 import getCurrentUser from "@/actions/getCurrentUser";
 
-export default async function Home() {
-  const listings = await getListings();
+interface IParams {
+  searchParams: IListingParams
+};
+export default async function Home({searchParams} : IParams) {
+  const listings = await getListingsByparams(searchParams);
   const currentUser = await getCurrentUser();
 
   if (listings.length === 0) {
