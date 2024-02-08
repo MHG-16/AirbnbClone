@@ -9,6 +9,9 @@ import getCurrentUser from "@/actions/getCurrentUser";
 interface IParams {
   searchParams: IListingParams
 };
+
+export const dynamic = 'force-static';
+
 export default async function Home({searchParams} : IParams) {
   const listings = await getListingsByparams(searchParams);
   const currentUser = await getCurrentUser();
