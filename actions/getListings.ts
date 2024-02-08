@@ -51,7 +51,7 @@ export interface IListingParams {
     category?: string;
 }
 
-export async function    getListingsByparams(params: IListingParams) {
+export async function getListingsByparams(params: IListingParams) {
     try {
         const {
             roomCount,
