@@ -24,7 +24,7 @@ const Info: React.FC<InfoProps> = ({
         <Heading title="More information" subtitle="Find your perfect place" />
         <Counter title="Guests" subtitle="How many people are coming?" value={guestCount} onChange={(value) => setGuestCount(value)}/>
         <Counter title="Rooms" subtitle="How many rooms do you need?" value={roomCount} onChange={(value) => setRoomCount(value)}/> 
-        <Counter title="Guests" subtitle="How many bathroom do you need?" value={bathroomCount} onChange={(value) => setBathroomCount(value)}/>  
+        <Counter title="Restrooms" subtitle="How many bathroom do you need?" value={bathroomCount} onChange={(value) => setBathroomCount(value)}/>  
     </div>
   )
 }
