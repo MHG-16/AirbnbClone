@@ -4,6 +4,8 @@ import EmptyState from '../_components/empty-state';
 import getReservations from '@/actions/getReservation';
 import TripsClient, { TripsSkeleton } from './tripsClient';
 
+export const dynamic = 'force-dynamic';
+
 const TripsPage = async () => {
   const currentUser = await getCurrentUser();
   if(!currentUser) {

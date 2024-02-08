@@ -4,6 +4,8 @@ import { getListingsByUserId } from "@/actions/getListings";
 import { Container } from "../_components/container";
 import PropertiesClient from "./propertiesClient";
 
+export const dynamic = 'force-dynamic';
+
 const PropertiesPage = async () => {
   const currentUser = await getCurrentUser();
   if(!currentUser) return <EmptyState title="Unauthorizated" subtitle="Please log in to see properties." />;
