@@ -6,8 +6,6 @@ import EmptyState from "./_components/empty-state";
 import ListingCard, { ListingCardSkeleton } from "./_components/listings/listingCard";
 import getCurrentUser from "@/actions/getCurrentUser";
 
-export const dynamic = 'force-dynamic';
-
 interface IParams {
   searchParams: IListingParams
 };

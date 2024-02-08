@@ -8,8 +8,6 @@ interface IParams {
   listingId?: string;
 }
 
-export const dynamic = 'force-dynamic';
-
 const ListingPage = async ({ params } : { params: IParams}) => {
   const listing = await getListingById(params);
   const reservations = await getReservations(params);
